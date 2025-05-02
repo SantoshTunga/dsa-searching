@@ -2,20 +2,35 @@ package com.dsa.bst;
 
 public class BinaryTreeTest {
 
-    public static BinarySearchTree insertBySortedArray(Integer[] values, int l, int h) {
+    public static BinarySearchTree deleteNode(BinarySearchTree root, int key) {
 
-        if (l > h) {
-            return null;
+        if (root == null) {
+            return root;
         }
 
-        int mid = (l + h) / 2;
+        if (key < root.value) {
+            root.leftNode = deleteNode(root.leftNode, key);
+        } else if (key > root.value) {
+            root.rightNode = deleteNode(root.leftNode, key);
+        } else {
+            // one child or No child
+            if (root.leftNode == null) {
+                return root.rightNode;
+            } else if (root.rightNode == null) {
+                return root.leftNode;
+            }
+            // both the children
+            root.value = getMinRightNodeValue( root.rightNode);
+            root.rightNode = deleteNode(root.rightNode,  root.value);
 
-        BinarySearchTree teeNode = new BinarySearchTree(values[mid]);
+        }
 
-        teeNode.leftNode = insertBySortedArray(values, l, mid - 1);
+        return root;
+    }
 
-        teeNode.rightNode = insertBySortedArray(values, mid + 1, h);
+    public static Integer getMinRightNodeValue(BinarySearchTree root )
+    {
 
-        return teeNode;
+        return root.value;
     }
 }
