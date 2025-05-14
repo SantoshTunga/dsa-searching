@@ -38,7 +38,7 @@ public class Btree {
         if (node == null) {
             return;
         }
-        System.out.println(" recurssive  inOrderTraversal");
+        System.out.println(" recursive  inOrderTraversal");
         printBtree(node.leftNode);
         System.out.println("value " + node.value);
         printBtree(node.rightNode);
