@@ -3,7 +3,7 @@ package com.dsa.array;
 public class RemoveDuplicateSortedArray {
 
     public int removeDuplicate(int[] a) {
-        int[] r = new int[a.length];
+        //int[] r = new int[a.length];
         int j = 0;
 
         for (int i = 1; i < a.length; i++) {
