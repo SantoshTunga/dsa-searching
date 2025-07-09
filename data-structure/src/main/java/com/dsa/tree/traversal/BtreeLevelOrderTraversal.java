@@ -50,8 +50,6 @@ public class BtreeLevelOrderTraversal {
             maxSize = Math.max(maxSize, queueNode.size());
 
         }
-
-
         return maxSize;
     }
 }
